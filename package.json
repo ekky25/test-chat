@@ -1,0 +1,24 @@
+{
+  "name": "test-api",
+  "version": "1.0.0",
+  "description": "node index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekky25/test-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ekky25/test-api/issues"
+  },
+  "homepage": "https://github.com/ekky25/test-api#readme",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
+}

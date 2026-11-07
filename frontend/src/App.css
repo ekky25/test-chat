@@ -4,18 +4,18 @@
   padding: 0;
 }
 
-body, html, #root {
-  width: 100%;
-  height: 100%;
+body, html {
   background-color: #000000;
-  overflow: hidden;
+  color: #ededed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100%;
 }
 
+/* Giriş Kutusu Düzeni */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
 }
 
@@ -23,43 +23,399 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-  width: 300px;
+  gap: 16px;
+  width: 100%;
+  max-width: 380px;
+  padding: 0 16px;
 }
 
 .center-input {
   width: 100%;
-  padding: 12px 16px;
-  background-color: #0d0d0d;
-  color: #ffffff;
+  padding: 14px 18px;
+  background: #0a0a0a;
   border: 1px solid #222222;
   border-radius: 8px;
-  font-size: 14px;
-  text-align: center;
+  color: #fff;
+  font-size: 15px;
   outline: none;
-  letter-spacing: 1px;
-  transition: all 0.2s ease;
-}
-
-.center-input::placeholder {
-  color: #555555;
-  letter-spacing: normal;
-  font-size: 13px;
+  text-align: center;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .center-input:focus {
   border-color: #444444;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
 }
 
 .center-input.disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
-  border-color: #1a1a1a;
 }
 
 .turnstile-container {
-  width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.status-text {
+  color: #71717a;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Chat Odası Düzeni */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  border-left: 1px solid #141414;
+  border-right: 1px solid #141414;
+}
+
+.chat-header {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #141414;
+}
+
+.room-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #a1a1aa;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.e2ee-tag {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #52525b;
+}
+
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-chat {
+  margin: auto;
+  color: #3f3f46;
+  font-size: 13px;
+}
+
+.message-row {
+  display: flex;
+}
+
+.message-row.me {
+  justify-content: flex-end;
+}
+
+.message-row.other {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 72%;
+  padding: 9px 13px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.message-row.me .message-bubble {
+  background: #18181b;
+  border: 1px solid #27272a;
+}
+
+.message-row.other .message-bubble {
+  background: #09090b;
+  border: 1px solid #18181b;
+}
+
+.sender-name {
+  font-size: 11px;
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.message-time {
+  font-size: 10px;
+  color: #52525b;
+  align-self: flex-end;
+}
+
+.chat-input-bar {
+  padding: 16px 20px;
+  border-top: 1px solid #141414;
+}
+
+.chat-input-bar input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #09090b;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  color: #ededed;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.chat-input-bar input:focus {
+  border-color: #3f3f46;
+}
+
+/* Header & Admin Butonu */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-badge {
+  color: #71717a;
+  font-size: 11px;
+}
+
+.admin-btn {
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #d4d4d8;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-btn:hover {
+  background: #27272a;
+  border-color: #3f3f46;
+  color: #fff;
+}
+
+/* Admin Kullanıcı Ekleme Bölümü */
+.admin-panel {
+  padding: 12px 20px;
+  background: #09090b;
+  border-bottom: 1px solid #18181b;
+}
+
+.admin-form {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-form input {
+  flex: 1;
+  padding: 8px 12px;
+  background: #121214;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  outline: none;
+}
+
+.admin-form input:focus {
+  border-color: #3f3f46;
+}
+
+.admin-form button {
+  padding: 8px 14px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.admin-form button:hover {
+  background: #3f3f46;
+}
+
+.admin-status {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #10b981;
+}
+.admin-role-select {
+  background: #121214;
+  border: 1px solid #27272a;
+  color: #a1a1aa;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 12px;
+  outline: none;
+}
+
+.disabled-chat-input {
+  background: #09090b !important;
+  color: #52525b !important;
+  cursor: not-allowed;
+  border-color: #18181b !important;
+}
+/* Admin Panel Tabs */
+.admin-panel {
+  padding: 14px 20px;
+  background: #09090b;
+  border-bottom: 1px solid #18181b;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #1c1c1f;
+  padding-bottom: 8px;
+}
+
+.admin-tabs button {
+  background: transparent;
+  border: none;
+  color: #71717a;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.admin-tabs button:hover {
+  color: #ededed;
+}
+
+.admin-tabs button.tab-active {
+  background: #18181b;
+  color: #fff;
+  font-weight: 500;
+}
+
+.admin-btn.active {
+  background: #27272a;
+  border-color: #3f3f46;
+}
+
+/* User Management Table */
+.user-table-wrap {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.user-table th {
+  color: #71717a;
+  padding: 6px 8px;
+  font-weight: 400;
+  border-bottom: 1px solid #18181b;
+}
+
+.user-table td {
+  padding: 8px;
+  border-bottom: 1px solid #121214;
+}
+
+.table-role-select {
+  background: #121214;
+  border: 1px solid #27272a;
+  color: #e4e4e7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.role-tag {
+  color: #a1a1aa;
+  font-size: 11px;
+}
+
+.status-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.status-badge.online {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.status-badge.offline {
+  color: #52525b;
+}
+
+.delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Online List */
+.online-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.online-user-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.online-user-item .name {
+  color: #fff;
+}
+
+.online-user-item .role {
+  color: #71717a;
+  font-size: 11px;
+}
+
+.empty-sub {
+  color: #52525b;
+  font-size: 12px;
 }
