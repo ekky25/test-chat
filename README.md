@@ -1,1 +1,1 @@
-Deneme
+node index.js
